@@ -67,6 +67,9 @@ html {
       border-radius: 8px;
       border:1px solid lightgray;
     }
+    form input , form textarea{
+      width: 100%;
+    }
 
     nav ul {
       display: flex;
