@@ -1,11 +1,21 @@
-name: CI test
+name: app
 
 on:
   push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  demo:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: afficher un bonjour
-        run: echo "Bonjour"
+      - name : afficher un message
+        uses: actions/checkout@v4
+        
+      - name: Copier le code source
+        run: echo 'Début du pipeline CI/CD'
