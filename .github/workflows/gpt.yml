@@ -1,0 +1,33 @@
+name: Portfolio CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Vérifier les fichiers
+        run: |
+          test -f index.html
+          echo "Portfolio validé"
+
+  docker_build:
+    needs: validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérifier Docker
+        run: |
+              docker --version
+              docker info
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image Docker
+        run: docker build -t portfolio .
