@@ -7,13 +7,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Style du bouton flottant WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: #ffffff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
+    .whatsapp-float:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.08);
+    }
+  </style>
 </head>
 <body>
 
-
-    <nav>
-        <h2>IBARA <span class="my_name">SOPHIA</span></h2>
+  <nav>
+    <h2>IBARA <span class="my_name">SOPHIA</span></h2>
     <ul>
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#about">À propos</a></li>
@@ -23,27 +47,23 @@
     </ul>
   </nav>
 
-
-
   <div id="accueil">
     <div class="hero">
-       <section class="section">
-         <div class="hero_text">
-            <h1> Je suis <span class="my_name">Sophia,</span><br>
-    Etudiante en fin de cycle de licence informatique | Développeuse web</h1>
-     <a href="#projects" class="btn">Voir mes projets</a>
-    
+      <section class="section">
+        <div class="hero_text">
+          <h1> Je suis <span class="my_name">Sophia,</span><br>
+          Etudiante en fin de cycle de licence informatique | Développeuse web</h1>
+          <a href="#projects" class="btn">Voir mes projets</a>
         </div>
-        <img src="/portfolio/data/ChatGPT Image 27 janv. 2026, 11_54_10.png " alt="" class="hero_image">
-    
-       </section></div>
+        <img src="/portfolio/data/ChatGPT Image 27 janv. 2026, 11_54_10.png" alt="" class="hero_image">
+      </section>
+    </div>
   </div>
-
 
   <section id="about">
     <h2>À propos de moi</h2>
     <div class="about">
-        <p>
+      <p>
         Je m'appelle Sophia IBARA,
         étudiante en Licence 3 Informatique à la Faculté des Sciences et Techniques (FST) de l'Université Marien Ngouabi, je suis passionnée par le développement web et j'aime concevoir des applications modernes, performantes et sécurisées. <br>
         Je suis enthousiaste et disposée à toute collaboration concernnant des projets innovants et percutants.
@@ -54,178 +74,177 @@
     </div>
   </section>
 
- 
-
-
-  
   <div class="my_projects">
     <section id="projects">
-    <h2>Mes Projets</h2>
+      <h2>Mes Projets</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Site E-commerce (Symfony)</h3>
+          <p>
+            Plateforme de vente en ligne avec gestion des produits,
+            utilisateurs et commandes (en cours).
+          </p>
+        </div>
 
-    <div class="projects">
+        <div class="project-card">
+          <h3>Front-end React + Vite</h3>
+          <p>
+            Interface utilisateur moderne, responsive et dynamique
+            pour un site web professionnel.
+          </p>
+        </div>
 
-      <div class="project-card">
-        <h3>Site E-commerce (Symfony)</h3>
-        <p>
-          Plateforme de vente en ligne avec gestion des produits,
-          utilisateurs et commandes (en cours).
-        </p>
+        <div class="project-card">
+          <h3>Gestion des Catastrophes (MERN)</h3>
+          <p>
+            Application web pour le suivi des catastrophes naturelles
+            avec tableau de bord et cartographie.
+          </p>
+        </div>
       </div>
-
-      <div class="project-card">
-        <h3>Front-end React + Vite</h3>
-        <p>
-          Interface utilisateur moderne, responsive et dynamique
-          pour un site web professionnel.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3>Gestion des Catastrophes (MERN)</h3>
-        <p>
-          Application web pour le suivi des catastrophes naturelles
-          avec tableau de bord et cartographie.
-        </p>
-      </div>
-
-    </div>
-  </section>
+    </section>
   </div>
 
-  
-<section id="myskills">
-  <h2>Mes compétences</h2>
-  <div id="skills">
-  <div class="skills-column">
-    
-    
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-html5"></i> HTML</span>
-        <span class="percentage">95%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-css3-alt"></i> CSS</span>
-        <span class="percentage">85%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-js"></i> JavaScript</span>
-        <span class="percentage">60%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 60%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-php"></i> PHP</span>
-        <span class="percentage">65%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 65%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-symfony"></i> Symfony</span>
-        <span class="percentage">60%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 60%;"></div></div>
-    </div>
-  </div>
-
-  <div class="skills-column">
-
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-react"></i> React + Vite</span>
-        <span class="percentage">70%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 70%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-node-js"></i> MERN Stack</span>
-        <span class="percentage">30%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 30%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-ubuntu"></i> Ubuntu Server</span>
-        <span class="percentage">40%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 40%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fab fa-git-alt"></i> Git / GitHub</span>
-        <span class="percentage">50%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 50%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info">
-        <span><i class="fas fa-database"></i> MySQL</span>
-        <span class="percentage">75%</span>
-      </div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
-    </div>
-  </div>
-</div>
-</section>
-  
-
- <div class="my_contacts">
-   <section id="contact">
-    <h2>Contacts</h2>
-
-    <div class="contact">
-      <p>Email : Ibaraniadesophiadivine@gmail.com</p>
-      <p>Téléphone : +242 05 312 17 43</p>
-      <p>GitHub : <a href="https://github.com/so914">github.com/so914</a></p>
-      <p>LinkedIn : <a href="https://www.linkedin.com/in/sophia-divine-ibara-niade-864385352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Sophia divine Ibara niade</a></p>
-
-      <h3>Vous avez une idée de projet? Envoyez moi un message</h3>
-
-      <div class="containForm">
-        <form id="contactForm" class="contact-form">
-        <div class="input-group">
-          <div>
-            <input type="text" id="name" placeholder="Votre nom">
-            <small class="error-msg"></small>
+  <section id="myskills">
+    <h2>Mes compétences</h2>
+    <div id="skills">
+      <div class="skills-column">
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-html5"></i> HTML</span>
+            <span class="percentage">95%</span>
           </div>
-          <div>
-      <input type="email" id="email" placeholder="Votre email">
-      <small class="error-msg"></small>
-    </div>
-  </div>
-  
-  <input type="text" id="projet" placeholder="Nom de votre projet">
-  <small class="error-msg"></small>
+          <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
+        </div>
 
-  <textarea id="message" placeholder="Décrivez votre projet" rows="5"></textarea>
-  <small class="error-msg"></small>
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="percentage">85%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
 
-  <input type="submit" class="btn" value="Envoyez" />
-</form>
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-js"></i> JavaScript</span>
+            <span class="percentage">60%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 60%;"></div></div>
+        </div>
 
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-php"></i> PHP</span>
+            <span class="percentage">65%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 65%;"></div></div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-symfony"></i> Symfony</span>
+            <span class="percentage">60%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 60%;"></div></div>
+        </div>
       </div>
-      <p id="formStatus" style="margin-top:15px;"></p>
+
+      <div class="skills-column">
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-react"></i> React + Vite</span>
+            <span class="percentage">70%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 70%;"></div></div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-node-js"></i> MERN Stack</span>
+            <span class="percentage">30%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 30%;"></div></div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-ubuntu"></i> Ubuntu Server</span>
+            <span class="percentage">40%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 40%;"></div></div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fab fa-git-alt"></i> Git / GitHub</span>
+            <span class="percentage">50%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 50%;"></div></div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span><i class="fas fa-database"></i> MySQL</span>
+            <span class="percentage">75%</span>
+          </div>
+          <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+        </div>
+      </div>
     </div>
   </section>
- </div>
+
+  <div class="my_contacts">
+    <section id="contact">
+      <h2>Contacts</h2>
+
+      <div class="contact">
+        <p>Email : Ibaraniadesophiadivine@gmail.com</p>
+        <p>Téléphone : +242 05 312 17 43</p>
+        <p>WhatsApp : <a href="https://wa.me." target="_blank" rel="noopener noreferrer">+242 06 554 98 75</a></p>
+        <p>GitHub : <a href="https://github.com/so914">github.com/so914</a></p>
+        <p>LinkedIn : <a href="https://www.linkedin.com/in/sophia-divine-ibara-niade-864385352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Sophia divine Ibara niade</a></p>
+
+        <h3>Vous avez une idée de projet? Envoyez moi un message</h3>
+
+        <div class="containForm">
+          <form id="contactForm" class="contact-form">
+            <div class="input-group">
+              <div>
+                <input type="text" id="name" placeholder="Votre nom">
+                <small class="error-msg"></small>
+              </div>
+              <div>
+                <input type="email" id="email" placeholder="Votre email">
+                <small class="error-msg"></small>
+              </div>
+            </div>
+            
+            <input type="text" id="projet" placeholder="Nom de votre projet">
+            <small class="error-msg"></small>
+
+            <textarea id="message" placeholder="Décrivez votre projet" rows="5"></textarea>
+            <small class="error-msg"></small>
+
+            <input type="submit" class="btn" value="Envoyez" />
+          </form>
+        </div>
+        <p id="formStatus" style="margin-top:15px;"></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bouton flottant WhatsApp -->
+  <!-- Version simplifiée sans texte pré-rempli (la plus fiable) -->
+<a 
+  href="https://whatsapp.com" 
+  class="whatsapp-float" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  aria-label="Discuter sur WhatsApp"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 
   <footer>
@@ -233,9 +252,6 @@
     <p class="droits">© 2026 Sophia. Tous droits réservés </p>
   </footer>
 
-
-
   <script src="script.js"></script>
-
 </body>
 </html>

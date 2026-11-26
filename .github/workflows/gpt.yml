@@ -1,3 +1,4 @@
+
 name: Portfolio CI/CD
 
 on:
@@ -6,28 +7,117 @@ on:
       - main
       - develop
 
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
 jobs:
-  validation:
+
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Vérifier les fichiers
+      - name: Vérifier le HTML
+        run: |
+          npx --yes htmlhint "**/*.html"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Vérifier la présence du fichier
         run: |
           test -f index.html
-          echo "Portfolio validé"
+          echo "Tests réussis"
 
-  docker_build:
-    needs: validation
+  trivy-code:
+    name: Trivy Code Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Vérifier Docker
-        run: |
-              docker --version
-              docker info
-      - name: Récupérer le code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Construire l'image Docker
-        run: docker build -t portfolio .
+      - name: Scanner le code
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          exit-code: '1'
+          severity: HIGH,CRITICAL
+
+  build:
+    name: Docker Build
+    needs: [lint, test, trivy-code]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t portfolio:${{ github.sha }} .
+
+  trivy-image:
+    name: Trivy Image Scan
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image for scanning
+        run: |
+          docker build -t portfolio:${{ github.sha }} .
+
+      - name: Scanner l'image
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: portfolio:${{ github.sha }}
+          format: table
+          exit-code: '1'
+          severity: HIGH,CRITICAL
+
+  push:
+    name: Push to GHCR
+    needs: trivy-image
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to GHCR
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | \
+          docker login ghcr.io \
+          -u "${{ github.actor }}" \
+          --password-stdin
+
+      - name: Build image
+        run: |
+          docker build -t portfolio:${{ github.sha }} .
+
+      - name: Tag image
+        run: |
+          docker tag portfolio:${{ github.sha }} \
+          ghcr.io/${{ github.repository_owner }}/portfolio:${{ github.sha }}
+
+      - name: Push image
+        run: |
+          docker push \
+          ghcr.io/${{ github.repository_owner }}/portfolio:${{ github.sha }}
